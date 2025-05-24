@@ -35,7 +35,7 @@ $ npm install
 
 ```bash
 # development
-$ npm run start
+$ npm run docker:up
 
 # watch mode
 $ npm run start:dev
