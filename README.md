@@ -1,98 +1,172 @@
 <p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
+  <img src="https://img.shields.io/badge/NestJS-Framework-red" alt="NestJS"/>
+  <img src="https://img.shields.io/badge/PostgreSQL-Database-blue" alt="PostgreSQL"/>
+  <img src="https://img.shields.io/badge/Prisma-ORM-lightblue" alt="Prisma"/>
+  <img src="https://img.shields.io/badge/Docker-Container-2496ED" alt="Docker"/>
+  <img src="https://img.shields.io/badge/Status-Development-yellow" alt="Status"/>
 </p>
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+# 🥋 Clube Feijão BJJ API
 
-## Description
+API para gestão da academia Clube Feijão de Jiu-Jitsu.  
+Desenvolvido em NestJS com PostgreSQL, Prisma e Docker.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+---
 
-## Project setup
+## 🚀 Tecnologias
 
+- [NestJS](https://nestjs.com/) — Framework Node.js
+- [PostgreSQL](https://www.postgresql.org/) — Banco de dados relacional
+- [Prisma](https://www.prisma.io/) — ORM moderno e tipado
+- [Docker](https://www.docker.com/) — Containers
+- [Docker Compose](https://docs.docker.com/compose/) — Orquestração local de containers
+
+---
+
+## ⚙️ Project Setup
+
+### 🔧 Instalação das dependências
 ```bash
-$ npm install
+npm install
 ```
 
-## Compile and run the project
+---
 
+## 🐳 Ambiente de Desenvolvimento (Recomendado)
+
+### 🔥 Subir API + Banco
 ```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+npm run docker:up
 ```
 
-## Run tests
-
+### 🛑 Derrubar ambiente
 ```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+npm run docker:down
 ```
 
-## Deployment
-
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
-
+### 📜 Ver logs
 ```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
+npm run docker:logs
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+### 🐚 Acessar o container da API
+```bash
+npm run docker:exec
+```
 
-## Resources
+---
 
-Check out a few resources that may come in handy when working with NestJS:
+## 🎯 Scripts Prisma
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+### 🔄 Rodar migrations
+```bash
+npm run docker:prisma:migrate -- --name <migration-name>
+```
 
-## Support
+### 🔥 Atualizar schema no banco (sem migrations)
+```bash
+npm run docker:prisma:db-push
+```
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+### 🗺️ Abrir Prisma Studio
+```bash
+npm run docker:prisma:studio
+```
 
-## Stay in touch
+### 🌱 Rodar seed
+```bash
+npm run docker:prisma:seed
+```
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+### ⬇️ Fazer introspecção de um banco existente
+```bash
+npm run docker:prisma:db-pull
+```
 
-## License
+---
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+## 🏗️ Rodar o Projeto Local (sem docker)
+
+### 🔥 Desenvolvimento (hot reload)
+```bash
+npm run start:dev
+```
+
+### 🚀 Produção local (build + start)
+```bash
+npm run build
+npm run start:prod
+```
+
+---
+
+## 🌐 Acesso à API
+- API rodando em: [`http://localhost:3000`](http://localhost:3000)
+
+---
+
+## 🗄️ Banco de Dados
+- Rodando em: `localhost:5432`
+- Banco: `clube_feijao_db`
+- Usuário: `postgres`
+- Senha: `postgres`
+
+---
+
+## 📦 Estrutura do Projeto
+
+```
+/src
+  /modules
+    /student
+    /responsible
+/prisma
+Dockerfile
+docker-compose.yml
+.env.example
+```
+
+---
+
+## 🔥 Variáveis de Ambiente (.env)
+```env
+DATABASE_URL="postgresql://postgres:postgres@db:5432/clube_feijao_db?schema=public"
+NODE_ENV=development
+```
+
+> ⚠️ Nunca commitar seu `.env`. Utilize o `.env.example` como referência.
+
+---
+
+## 🚀 Deploy
+- O `Dockerfile` está configurado para produção (multi-stage build).
+- Para produção, use o Dockerfile diretamente ou gere uma imagem e suba no Kubernetes, AWS, GCP, etc.
+
+---
+
+## 🏆 Boas Práticas
+
+- ✅ Branch principal: `main`
+- ✅ Branch de desenvolvimento: `dev`
+- ✅ Push e PR sempre na `dev`
+- ✅ PR da `dev` para `main` só após revisão
+
+---
+
+## 💻 Contribuindo
+
+1. Faça um fork.
+2. Crie uma branch: `git checkout -b feature/nome-da-feature`
+3. Commit: `git commit -m 'feat: descrição'`
+4. Push: `git push origin feature/nome-da-feature`
+5. Abra um Pull Request na `dev`.
+
+---
+
+## 🔐 Licença
+
+Este projeto é privado para uso interno do Clube Feijão BJJ.  
+Licença privada. Todos os direitos reservados.
+
+---

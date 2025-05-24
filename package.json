@@ -1,5 +1,5 @@
 {
-  "name": "clube-feijao-api",
+  "name": "clube-feijao-bjj-api",
   "version": "0.0.1",
   "description": "",
   "author": "",
@@ -7,6 +7,17 @@
   "license": "UNLICENSED",
   "scripts": {
     "build": "nest build",
+    "docker:up": "docker compose up -d --build",
+    "docker:down": "docker compose down",
+    "docker:logs": "docker compose logs -f",
+    "docker:ps": "docker compose ps",
+    "docker:exec": "docker compose exec api sh",
+    "docker:prisma:generate": "docker compose exec api sh -c 'npx prisma generate'",
+    "docker:prisma:migrate": "docker compose exec api sh -c 'npx prisma migrate dev'",
+    "docker:prisma:db-push": "docker compose exec api sh -c 'npx prisma db push'",
+    "docker:prisma:db-pull": "docker compose exec api sh -c 'npx prisma db pull'",
+    "docker:prisma:studio": "docker compose exec api sh -c 'npx prisma studio'",
+    "docker:prisma:seed": "docker compose exec api sh -c 'npx prisma db seed'",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
     "start:dev": "nest start --watch",
@@ -22,7 +33,7 @@
   "dependencies": {
     "@nestjs/common": "^11.0.1",
     "@nestjs/core": "^11.0.1",
-    "@nestjs/platform-express": "^11.0.1",
+    "@nestjs/platform-fastify": "^11.1.1",
     "reflect-metadata": "^0.2.2",
     "rxjs": "^7.8.1"
   },
@@ -44,6 +55,7 @@
     "globals": "^16.0.0",
     "jest": "^29.7.0",
     "prettier": "^3.4.2",
+    "prisma": "^6.8.2",
     "source-map-support": "^0.5.21",
     "supertest": "^7.0.0",
     "ts-jest": "^29.2.5",
